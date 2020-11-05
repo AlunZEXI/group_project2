@@ -1,0 +1,6 @@
+spell,accio
+name,hagrid
+name,snape
+quidditch,seeker
+quidditch,beater
+spell,alohamora
