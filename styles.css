@@ -33,3 +33,17 @@ a {
 a:hover {
 	background-color: #FFA;
 }
+
+.guessbox{
+    display: block;
+    margin-left: auto;
+    margin-right: auto; 
+    width:70%;
+    border:solid gray 0.5em;
+    background-color: lightgray;
+    color:yellowgreen;
+    font-size:48px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    margin-bottom: 24px;
+    text-align: center;
+}
