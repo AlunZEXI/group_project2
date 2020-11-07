@@ -41,9 +41,32 @@ function hangman($mistakes){
 </div>
 <?php       
 }
-function guess($guess, $word){
+function guess($word, $guess){
     $pos = strpos($word, $guess);
     return $pos === true;
+}
+
+function wordList(): array{
+    $file = 'words.txt';
+    $current = file_get_contents($file);
+    $wordlist = explode("\n", $current);
+    return $wordlist;
+}
+
+function pickWord($wordlist): array{
+    $listlen = count($wordlist);
+    $word_and_hints = explode(",",$wordlist[rand(0,$listlen-1)]);
+    return $word_and_hints;
+}
+
+function hints($word_and_hints){
+    $hints = $word_and_hints;
+    unset($hints[0]);
+    return $hints;
+}
+
+function printHint($hints){
+        print($hints[1]);
 }
 
 ?>
