@@ -1,27 +1,34 @@
 <?php
 include 'common.php';
 $username = $_GET["username"];
-if(userExists($username) == false){
+if (userExists($username) == false) {
     header('Location: login_error.php');
 }
 session_start();
 
 $_SESSION["username"] = $username;
 hangmanHeader();
-
 ?>
 
+<!DOCTYPE html>
+
+<html>
+<head>
+    <title>Gamemode</title>
+    <link rel="stylesheet" href="gamemode.css"/>
+</head>
+
 <form action= "gameplay.php"
-        method="get"> 
+        method="get">
 
-Welcome <?php print $username . "!"; ?>
+Welcome <?php print $username . "!";?>
 <br>
 
-This session is for <?php print $_SESSION["username"]; ?>
+This session is for <?php print $_SESSION["username"];?>
 
 <br>
 
-Choose game mode: 
+Choose game mode:
 <select name="gamemode">
 					<option value = "Endless">Endless</option>
 					<option value = "Easy">Easy</option>
@@ -29,11 +36,12 @@ Choose game mode:
                     <option value = "Hard">Hard</option>
         </select>
 <br>
-<input type="submit" value="Start Game"> 
+<input type="submit" value="Start Game">
 
 
 <?php
 
-
 hangmanFooter();
 ?>
+
+</html>
