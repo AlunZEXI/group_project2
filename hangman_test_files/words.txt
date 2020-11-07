@@ -1,6 +1,12 @@
-spell,accio
-name,hagrid
-name,snape
-quidditch,seeker
-quidditch,beater
-spell,alohamora
+accio,spell,search,return
+hagrid,name,giant,groundskeeper
+snape,name,greasy,potions
+seeker,quidditch,positon,fast
+beater,quidditch,postion,heavy hitter
+alohamora,spell,open,unlock
+gryffindor,house,courage,bravery
+ravenclaw,house,wisdom,cleverness
+hufflepuff,house,loyalty,fair play
+slytherin,house,cunning,ambitious
+patronus,spell,silver,animal
+dobby,name,house elf,sock
