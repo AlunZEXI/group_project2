@@ -1,5 +1,7 @@
 <?php
 
+	include 'common.php';
+
 	$errors = array (
 		1 => 'That username is already taken.',
 		2 => 'You cannot have special characters in your username.',
@@ -33,7 +35,7 @@
 				</label>
 
 				<label>Password:
-					<input type="text" name="password" size=16>
+					<input type="password" name="password" size=16>
 				</label>
 
 				<input type="submit" value="Sign up">
