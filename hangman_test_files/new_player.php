@@ -1,20 +1,29 @@
 <?php
 include 'common.php';
-hangmanHeader();
 ?>
+<!DOCTYPE html>
+<html lang="en">
 
-<form action="signup_confirm.php"
-        method="post"> 
-        
-Create a Username: <input name="username" type = "text" maxlength="12" size="12"/>
-<!--limit username length to make display consistent-->
-<input type="submit" value="Sign Up"/>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Group Project 2 Login</title>
+    <link rel="stylesheet" href="../login-page.css">
+</head>
+<body>
+        <main id="main-holder">
+                <h1 id="login-header">AEIOU'S Hangman Signup</h1>
 
-</form>
+                <div id="login-error-msg-holder">
+                <p id="login-error-msg">Invalid username <span id="error-msg-second-line">and/or password</span></p>
+                </div>
 
-
-
-
-<?php
-hangmanFooter();
-?>
+                <form id="login-form" action="signup_confirm.php"
+                        method="post"> 
+                <input type="text" name="username" id="username-field" class="login-form-field" placeholder="Username" maxlength="12">
+                <input type="password" name="password" id="password-field" class="login-form-field" placeholder="Password">
+                <input type="submit" value="Login" id="login-form-submit">
+                </form>
+        </main>
+</body>
+</html>
