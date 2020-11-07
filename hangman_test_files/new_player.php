@@ -19,7 +19,7 @@ include 'common.php';
                 </div>
 
                 <form id="login-form" action="signup_confirm.php"
-                        method="post"> 
+                        method="post">
                 <input type="text" name="username" id="username-field" class="login-form-field" placeholder="Username" maxlength="12">
                 <input type="password" name="password" id="password-field" class="login-form-field" placeholder="Password">
                 <input type="submit" value="Login" id="login-form-submit">
