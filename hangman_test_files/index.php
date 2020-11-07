@@ -16,7 +16,7 @@ hangmanHeader();
     margin-right: auto;
     width: 50%;align-content:center;">
 
-    <h1 style="color:white"> Hangman game</h1>
+    <h1> Hangman game</h1>
     <div class="front_options"><a href="new_player.php">New Player<br></a></div>
     <div class="front_options"><a href="new_player.php">Returning<br></a></div>
 
