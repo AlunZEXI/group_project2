@@ -1,5 +1,7 @@
 <?php
 
+	include 'common.php';
+
 	$username = $_POST['username'];
 	$password = $_POST['password'];
 
@@ -20,6 +22,12 @@
 		exit();
 	}
 
-	file_put_contents($file_location, $password);
+	file_put_contents($file_location, 'password:' . $password);
+
+	session_start();
+	$_SESSION['username'] = $username;
+
+	header('Location: difficulty.php');
+	exit();
 
 ?>
