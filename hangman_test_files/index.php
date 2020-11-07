@@ -11,12 +11,12 @@ hangmanHeader();
 </head>
 
 <body>
-    <img src="./IMG/LOGO.PNG" style="display: block;
+    <img src="../IMG/logo.svg" style="display: block;
     margin-left: auto;
     margin-right: auto;
     width: 50%;align-content:center;">
 
-    <h1 style="color:white"> Welcome to our Harry Potter hangman game</h1>
+    <h1 style="color:white"> Hangman game</h1>
     <div class="front_options"><a href="new_player.php">New Player<br></a></div>
     <div class="front_options"><a href="new_player.php">Returning<br></a></div>
 
