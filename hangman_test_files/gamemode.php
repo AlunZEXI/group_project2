@@ -29,10 +29,10 @@ This session is for <?php print $_SESSION["username"];?>
 
 Choose game mode:
 <select name="gamemode">
-					<option value = "Endless">Endless</option>
-					<option value = "Easy">Easy</option>
-                    <option value = "Normal">Normal</option>
-                    <option value = "Hard">Hard</option>
+					<option value = "endless">Endless</option>
+					<option value = "easy">Easy</option>
+                    <option value = "normal">Normal</option>
+                    <option value = "hard">Hard</option>
         </select>
 <br>
 <input type="submit" value="Start Game">

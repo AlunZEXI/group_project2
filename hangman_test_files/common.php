@@ -93,8 +93,14 @@ function winner($guessedWord, $word): bool{
     return false;
 }
 
+function recordScore($username, $score, $gamemode){
+    $filename = 'scores/' . $gamemode . '.txt';
+    $current = file_get_contents($filename);
+    $userscore = $username . "," . $score;
+    $current += '\n' . $userscore . '\n';
+    file_put_contents($filename, $current);
 
-
+}
 
 
 ?>
