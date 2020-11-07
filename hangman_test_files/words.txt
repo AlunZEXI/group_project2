@@ -10,3 +10,5 @@ hufflepuff,house,loyalty,fair play
 slytherin,house,cunning,ambitious
 patronus,spell,silver,animal
 dobby,name,house elf,sock
+scabbers,rat,animagus,gryffindor
+nagini,snake,Voldemort's pet, horcrux
