@@ -69,4 +69,32 @@ function printHint($hints){
         print($hints[1]);
 }
 
+function guessedWord($word): array{
+    $length = strlen($word);
+    $fillin = array_fill(0, $length, "_");
+    return $fillin;
+}
+
+function inputGuess($guess, $word, $guessedWord){
+    $wordArr = str_split($word);
+    for($x = 0; $x < count($wordArr); $x++){
+        if(strcmp($guess, $wordArr[$x])==0){
+            $guessedWord[$x] = $guess;
+        }
+    }
+    return $guessedWord;
+}
+
+function winner($guessedWord, $word): bool{
+    $gluedWord = implode($guessedWord);
+    if(strcmp($gluedWord, $word) == 0){
+        return true;
+    }
+    return false;
+}
+
+
+
+
+
 ?>

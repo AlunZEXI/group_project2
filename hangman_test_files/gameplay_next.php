@@ -7,6 +7,7 @@ session_start();
 $username = $_SESSION["username"];
 $gamemode = $_SESSION["gamemode"];
 $word = $_SESSION["word"];
+$guessedWord = $_SESSION["guessedword"];
 $guess = $_POST["guess"];
 $hints = $_SESSION["hints"];
 $hint = "";
@@ -14,9 +15,15 @@ $numhints = $_SESSION["numhints"];
 
 
 if($_POST['next_button'] == 'Guess'){
-    //$pos = strpos($word, $guess);
-    if(guess($word, $guess) === false){
+    $pos = strpos($word, $guess);
+    if($pos === false){
         ++$_SESSION["mistakes"];
+    } else {
+        $guessedWord = inputGuess($guess, $word, $guessedWord);
+        $_SESSION["guessedword"] = $guessedWord;
+        if(winner($guessedWord, $word)){
+            $_SESSION["score"] += 10;
+        }
     }
 }
 if($_POST['next_button'] == 'Hint'){
@@ -37,7 +44,8 @@ hangmanHeader();
 This session is for <?php print $_SESSION["username"];  print "  word=" . $word;  ?>
 <br>
 <?php hangman($mistakes); ?>
-
+<br>
+<p> <?php print_r($guessedWord); ?></p>
 <form action="gameplay_next.php"
         method="post">    
         Guess a letter: <input name="guess" type = "text" maxlength="1" size="3"/>

@@ -5,9 +5,7 @@ if (userExists($username) == false) {
     header('Location: login_error.php');
 }
 session_start();
-
 $_SESSION["username"] = $username;
-hangmanHeader();
 ?>
 
 <!DOCTYPE html>
@@ -17,6 +15,7 @@ hangmanHeader();
     <title>Gamemode</title>
     <link rel="stylesheet" href="gamemode.css"/>
 </head>
+<body>
 
 <form action= "gameplay.php"
         method="get">
@@ -38,10 +37,6 @@ Choose game mode:
 <br>
 <input type="submit" value="Start Game">
 
-
-<?php
-
-hangmanFooter();
-?>
-
+</form>
+</body>
 </html>

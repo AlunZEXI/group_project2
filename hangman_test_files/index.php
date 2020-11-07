@@ -18,7 +18,7 @@ hangmanHeader();
 
     <h1> Hangman game</h1>
     <div class="front_options"><a href="new_player.php">New Player<br></a></div>
-    <div class="front_options"><a href="new_player.php">Returning<br></a></div>
+    <div class="front_options"><a href="returning_player.php">Returning<br></a></div>
 
     <br>
     <p>Results and page (C) Copyright AEIOU Inc.</p>

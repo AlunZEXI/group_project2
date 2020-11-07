@@ -10,6 +10,7 @@ $wordlist = wordList();
 $wordArr = pickWord($wordlist);
 $word = $wordArr[0];
 $hints = hints($wordArr);
+$guessedWord = guessedWord($word);
 
 //decides whether or not the hangman refreshes
 switch($gamemode){
@@ -25,6 +26,7 @@ session_start();
 $_SESSION["gamemode"] = $gamemode;
 $_SESSION["score"] = $score;
 $_SESSION["word"] = $word; //make array of words from text file.
+$_SESSION["guessedword"] = $guessedWord;
 $_SESSION["hints"] = $hints;
 $_SESSION["wordlist"] = $wordlist;
 $_SESSION["mistakes"] = $mistakes;

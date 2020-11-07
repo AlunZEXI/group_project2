@@ -11,10 +11,10 @@ hangmanHeader();
         <th>Hard</th>
     </tr>
     <tr>
-        <td><?php printBoard('./scores/endless_scores.txt') ?></td >
-        <td><?php printBoard('./scores/easy_scores.txt') ?></td>
-        <td><?php printBoard('./scores/normal_scores.txt') ?></td>
-        <td><?php printBoard('./scores/hard_scores.txt') ?></td>
+        <td><?php printBoard('./scores/endless.txt') ?></td >
+        <td><?php printBoard('./scores/easy.txt') ?></td>
+        <td><?php printBoard('./scores/normal.txt') ?></td>
+        <td><?php printBoard('./scores/hard.txt') ?></td>
     </tr>
 </table>
 
