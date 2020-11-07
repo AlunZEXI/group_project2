@@ -4,6 +4,9 @@ $username = $_GET["username"];
 if(userExists($username) == false){
     header('Location: login_error.php');
 }
+session_start();
+
+$_SESSION["username"] = $username;
 hangmanHeader();
 
 ?>
@@ -12,6 +15,9 @@ hangmanHeader();
         method="get"> 
 
 Welcome <?php print $username . "!"; ?>
+<br>
+
+This session is for <?php print $_SESSION["username"]; ?>
 
 <br>
 
