@@ -7,7 +7,7 @@
 
 	function hangman($mistakes) {
 
-		if ($mistakes > 6) $mistakes = 6;  // never show any image past hagrid5.png
+		if ($mistakes > 6) $mistakes = 6;  // never try to show anything past gameover.png
 
     	$gameimage = array("hagrid/hagrid0.png", "hagrid/hagrid1.png", "hagrid/hagrid2.png",
     	"hagrid/hagrid3.png", "hagrid/hagrid4.png", "hagrid/hagrid5.png", "hagrid/gameover.png");
