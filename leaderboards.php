@@ -90,7 +90,7 @@
 		</table>
 		</div>
 		<div class="guessbox">
-			<a href="logout.php">Back to Main Page</a> <br>
+			<a href="index.php">Back to Main Page</a> <br>
 		</div>
 	</body>
 
