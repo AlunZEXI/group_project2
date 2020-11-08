@@ -97,3 +97,10 @@ body .login{
   cursor: pointer;
   outline: none;
 }
+
+div .gamebox {
+    width: 1000px;
+    height: 1000px;
+    background-color: #303468;
+    
+}
