@@ -50,6 +50,7 @@
 				}
 			}
 		}
+		return false;
 	}
 
 	function write_new_account_info($username, $password) {
