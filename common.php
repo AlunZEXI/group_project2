@@ -130,7 +130,9 @@
 	}
 
 	function write_user_data($username, $data) {
-
+		
+		$output_string = "";
+		
 		foreach ($data as $key => $value) {
 			$output_string = $output_string . PHP_EOL . $key . ':' . $value;
 		}
@@ -175,6 +177,8 @@
 	}
 
 	function bool_array_to_int($array): int {
+
+		$output = 0;
 
 		foreach ($array as $pos => $bool) {
 			if ($bool) $output = $output + pow(2, $pos);
