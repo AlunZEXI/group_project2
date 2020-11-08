@@ -101,7 +101,7 @@ html {
 
 div .gamebox {
     width: 1000px;
-    height: 1000px;
+    height: 800px;
     background-color: #303468;
     
 }
@@ -154,13 +154,14 @@ table .leaderboard {
 }
 
 a {
-color: black;
+  color: black;
   text-decoration: none;
+  
   
 }
 
 a:hover {
-background-color: #FFA;
+  background-color: #FFA;
 }
 
 .guessbox{

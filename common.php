@@ -13,7 +13,7 @@
     	"hagrid/hagrid3.png", "hagrid/hagrid4.png", "hagrid/hagrid5.png", "hagrid/gameover.png");
 		
 		echo '<div class = "gamebox">';
-		echo '<img src=' . $gameimage[$mistakes] . '>';
+		echo '<img width="800px" src=' . $gameimage[$mistakes] . '>';
 		echo '</div>';
 
 	}

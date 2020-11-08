@@ -19,14 +19,23 @@
 ?>
 
 <html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Login</title>
+		<link rel="stylesheet" href="./hangman.css" />
+	</head>
 
-	<body>
+	<body class="gameplay">
+		<h1>You guessed the word! Yay!</h1>
+		<h1>Your current score is <?=$score ?>!</h1>
 
-		<a>You guessed the word! Yay!</a>
-		<a>Your current score is <?=$score ?>! </a>
-		<a href="new-word.php">Try another word?</a>
-		<a href="difficulty.php">Change difficulty?</a>
-		<a href="logout.php">Logout</a>
+		<div class="guessbox">
+			
+			<a href="new-word.php">Try another word?</a> <br>
+			<a href="difficulty.php">Change difficulty?</a> <br>
+			<a href="logout.php">Logout</a> <br>
+		</div>
 
 	</body>
 
