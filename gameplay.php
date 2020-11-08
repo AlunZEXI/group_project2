@@ -18,9 +18,6 @@
 		echo '<a id="error">' . $errors[$error_code] . '</a>';
 	}
 
-	$mistake_count = intval($data['mistakeCount']);
-	hangman($mistake_count);
-
 	$guessed_int = $data['lettersGuessed'];
 	$guessed_array = int_to_bool_array($guessed_int);
 
@@ -37,13 +34,17 @@
 		}
 	}
 
-	print_r($shown_letters);
-
 	if (array_search('_', $shown_letters) === false) {
-		echo 'You have completed the word!';
+		header('Location: winner.php');
+		exit();
 	}
 
 	$hint_count = $data['hintCount'];
+
+	$mistake_count = intval($data['mistakeCount']);
+	hangman($mistake_count);
+
+	print_r($shown_letters);
 
 	echo '<br />';
 

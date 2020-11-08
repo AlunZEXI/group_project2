@@ -1,6 +1,7 @@
 <?php
-include 'common.php';
-hangmanHeader();
+
+	include 'common.php';
+
 ?>
 
 <table>
@@ -11,16 +12,15 @@ hangmanHeader();
         <th>Hard</th>
     </tr>
     <tr>
-        <td><?php printBoard('./scores/endless.txt') ?></td >
-        <td><?php printBoard('./scores/easy.txt') ?></td>
-        <td><?php printBoard('./scores/normal.txt') ?></td>
-        <td><?php printBoard('./scores/hard.txt') ?></td>
+        <td><?php printBoard('scores/endless.txt') ?></td >
+        <td><?php printBoard('scores/easy.txt') ?></td>
+        <td><?php printBoard('scores/normal.txt') ?></td>
+        <td><?php printBoard('scores/hard.txt') ?></td>
     </tr>
 </table>
 
 
 <?php
-hangmanFooter();
 
 //takes in name of score file e.g. 'score/endless_scores.txt'
 function printBoard($filename){

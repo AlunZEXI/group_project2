@@ -41,7 +41,7 @@
 		$file_contents = file_get_contents('passwords.txt');
 		$raw_text = explode(PHP_EOL, $file_contents);
 		foreach ($raw_text as $line) {
-			$split = explode(':', $item);
+			$split = explode(':', $line);
 			if ($split[0] == $username) {
 				if ($split[1] == $password) {
 					return true;
@@ -54,7 +54,7 @@
 	}
 
 	function write_new_account_info($username, $password) {
-		$save_to_file = "\n" . $username . ':' . $password;
+		$save_to_file = PHP_EOL . $username . ':' . $password;
 		file_put_contents('passwords.txt', $save_to_file, FILE_APPEND);
 	}
 
@@ -66,14 +66,14 @@
 
 	function write_user_data($username, $data) {
 		foreach ($data as $key => $value) {
-			$output_string = $output_string . ',' . $key . ':' . $value;
+			$output_string = $output_string . PHP_EOL . $key . ':' . $value;
 		}
 		file_put_contents(get_user_file_location($username), $output_string);
 	}
 
 	function read_user_data($username): array {
 		$file_contents = file_get_contents(get_user_file_location($username));
-		$array = explode(',', $file_contents);
+		$array = explode(PHP_EOL, $file_contents);
 		foreach ($array as $item) {
 			$split = explode(':', $item);
 			$output[$split[0]] = $split[1];
