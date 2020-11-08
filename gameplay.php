@@ -11,10 +11,7 @@
 
 	$error = $_GET['err'];
 
-	if (!$error == '') {
-		$error_code = intval($error);
-		echo '<a id="error">' . $errors[$error_code] . '</a>';
-	}
+	
 
 	$guessed_int = $data['lettersGuessed'];
 	$guessed_array = int_to_bool_array($guessed_int);
@@ -57,14 +54,19 @@
 		<link rel="stylesheet" href="hangman.css">
 	</head>
 
-	<body>
+	<body class="gameplay">
 		<?php
 			hangman($mistake_count);
 
 			echo '<br />';
 		
+			
+		?>
+	<div class="guessbox">
+		<?php
+		
 			if ($hint_count != 0) {
-				echo $data['hint1'] . ', ';
+				echo 'Hint: ' . $data['hint1'] . ', ';
 			}
 		
 			if ($hint_count >= 2) {
@@ -74,16 +76,11 @@
 			if ($hint_count == 3) {
 				echo $data['hint3'] . '<br />';
 			}
-		?>
-	<div class="guessbox">
-		<?php
-		
-
 
 		?>
 
-		<table class="letter-display">
-			<tr>
+		<table>
+			<tr >
 
 				<?php
 				
@@ -104,10 +101,15 @@
 		
 		<form action="gameplay-next.php" method="POST">
 			Guess a letter: <input name="guess" type="text" maxlength="1" size="3" />
-			<input type="submit" name="next_button" value="Guess" class="login-form-field" />
-			<br>
-			Click for Hint: <input type="submit" name="next_button" value="Hint" />
+			<input type="submit" name="next_button" value="Guess" class="guess-and-hint" />
+			Click for Hint: <input type="submit" name="next_button" value="Hint" class="guess-and-hint" />
 		</form>
+		<?php
+			if (!$error == '') {
+				$error_code = intval($error);
+				echo '<a id="error">' . $errors[$error_code] . '</a>';
+			}
+		?>
 		</div>
 
 	</body>

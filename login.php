@@ -19,7 +19,7 @@
 		<link rel="stylesheet" href="./hangman.css" />
 	</head>
 
-	<body>
+	<body class="login-body">
 		<main id="main-holder">
 
 			<h1 id="login-header">AEIOU'S Hangman Login</h1>
