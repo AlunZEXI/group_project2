@@ -43,7 +43,7 @@
 
 	// BELOW: LEADERBOAD FUNCTIONS
 
-	function read_leaderboard($gamemode): array {
+	function get_gamemode_file_location($gamemode): string {
 
 		$leaderboard_files = array (
 			'endless' => 'scores/endless.txt',
@@ -52,28 +52,35 @@
 			'hard' => 'scores/hard.txt'
 		);
 
-		$file_contents = file_get_contents($leaderboard_files[$gamemode]);
-		$scores = explode(PHP_EOL, $file_contents);
+		return $leaderboard_files[$gamemode];
 
-		foreach ($scores as $score) {
-        	$score = explode(":", $score);
-        	$score_list[$score[0]] = $score[1];
+	}
+
+	function read_leaderboard($gamemode): array {
+
+		$file_location = get_gamemode_file_location($gamemode);
+		if (file_exists($file_location)) {
+
+			$file_contents = file_get_contents($file_location);
+			$scores = explode(PHP_EOL, $file_contents);
+
+			foreach ($scores as $score) {
+        		$score = explode(":", $score);
+        		$score_list[$score[0]] = $score[1];
+			}
+
+			arsort($score_list);  // sores values numerically
+
+			return $score_list;
+
+		} else {
+			
+			return [];
 		}
-
-		arsort($score_list);  // sores values numerically
-
-		return $score_list;
 		
 	}
 
 	function write_leaderboard($gamemode, $array) {
-
-		$leaderboard_files = array (
-			'endless' => 'scores/endless.txt',
-			'easy' => 'scores/easy.txt',
-			'normal' => 'scores/normal.txt',
-			'hard' => 'scores/hard.txt'
-		);
 
 		$output_string = "";
 		
@@ -81,7 +88,8 @@
 			$output_string = $output_string . PHP_EOL . $key . ':' . $value;
 		}
 
-		file_put_contents($leaderboard_files[$gamemode], $output_string);
+		$file_location = get_gamemode_file_location($gamemode);
+		file_put_contents($file_location, $output_string);
 
 	}
 

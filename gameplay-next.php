@@ -5,11 +5,11 @@
 
 	$button_clicked = $_POST['next_button'];
 
-	if ($button_clicked == 'Guess') {  // guessing a letter
+	if ($button_clicked == 'Guess') {  // making a guess
 
 		$guess = $_POST['guess'];
 
-		if (preg_match("/^$/", $guess)) {
+		if (preg_match("/^$/", $guess)) {  // guessed nothing (blank input)
 			header("Location: gameplay.php?err=3");
 			exit();
 		}

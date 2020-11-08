@@ -26,9 +26,13 @@
 	$shown_letters = array_fill(0, $word_length, '_');
 
 	for ($a = 0; $a < $word_length; $a++) {
-		$char_pos = array_search($word_split[$a], $alphabet);
-		if ($guessed_array[$char_pos]) {
-			$shown_letters[$a] = $word_split[$a];
+		if ($word_split[$a] == '-') {
+			$shown_letters[$a] = '-';
+		} else {
+			$char_pos = array_search($word_split[$a], $alphabet);
+			if ($guessed_array[$char_pos]) {
+				$shown_letters[$a] = $word_split[$a];
+			}
 		}
 	}
 
@@ -75,7 +79,13 @@
 				<?php
 				
 					for ($a = 0; $a < $word_length; $a++) {
-						echo '<th>' . $shown_letters[$a] . '</th>';
+						if ($shown_letters[$a] == '-') {
+							echo '<th class="word-space"></th>';
+						} else if ($shown_letters[$a] == '-') {
+							echo '<th class="word-unknown"></th>';
+						} else {
+							echo '<th class="word-letter">' . $shown_letters[$a] . '</th>';
+						}
 					}
 
 				?>
