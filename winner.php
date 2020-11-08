@@ -1,10 +1,12 @@
 <?php
 
 	include 'common.php';
+	session_handler();
 
-	session_start();
-	$username = $_SESSION['username'];
-	$data = read_user_data($username);
+	$score = intval($data['score']);
+	$score = $score + 10;
+
+	$gamemode = $data['gamemode'];
 
 ?>
 

@@ -2,62 +2,85 @@
 
 	include 'common.php';
 
+	$endless_leaderboard = read_leaderboard('endless');
+	$endless_keys = array_keys($endless_leaderboard);
+	$endless_values = array_values($endless_leaderboard);
+
+	$easy_leaderboard = read_leaderboard('easy');
+	$easy_keys = array_keys($easy_leaderboard);
+	$easy_values = array_values($easy_leaderboard);
+
+	$normal_leaderboard = read_leaderboard('normal');
+	$normal_keys = array_keys($normal_leaderboard);
+	$normal_values = array_values($normal_leaderboard);
+
+	$hard_leaderboard = read_leaderboard('hard');
+	$hard_keys = array_keys($hard_leaderboard);
+	$hard_values = array_values($hard_leaderboard);
+
 ?>
 
-<table>
-    <tr>
-        <th>Endless</th>
-        <th>Easy</th>
-        <th>Normal</th>
-        <th>Hard</th>
-    </tr>
-    <tr>
-        <td><?php printBoard('scores/endless.txt') ?></td >
-        <td><?php printBoard('scores/easy.txt') ?></td>
-        <td><?php printBoard('scores/normal.txt') ?></td>
-        <td><?php printBoard('scores/hard.txt') ?></td>
-    </tr>
-</table>
+<html>
 
+	<body>
+		<table>
+    		<tr>
+        		<th colspan=2>Endless</th>
+        		<th colspan=2>Easy</th>
+        		<th colspan=2>Normal</th>
+        		<th colspan=2>Hard</th>
+    		</tr>
+    		<tr>
+				<td> <?=$endless_keys[0] ?> </td>
+				<td> <?=$endless_values[0] ?> </td>
+				<td> <?=$easy_keys[0] ?> </td>
+				<td> <?=$easy_values[0] ?> </td>
+				<td> <?=$normal_keys[0] ?> </td>
+				<td> <?=$normal_values[0] ?> </td>
+				<td> <?=$hard_keys[0] ?> </td>
+				<td> <?=$hard_values[0] ?> </td>
+			</tr>
+			<tr>
+				<td> <?=$endless_keys[1] ?> </td>
+				<td> <?=$endless_values[1] ?> </td>
+				<td> <?=$easy_keys[1] ?> </td>
+				<td> <?=$easy_values[1] ?> </td>
+				<td> <?=$normal_keys[1] ?> </td>
+				<td> <?=$normal_values[1] ?> </td>
+				<td> <?=$hard_keys[1] ?> </td>
+				<td> <?=$hard_values[1] ?> </td>
+			</tr>
+			<tr>
+				<td> <?=$endless_keys[2] ?> </td>
+				<td> <?=$endless_values[2] ?> </td>
+				<td> <?=$easy_keys[2] ?> </td>
+				<td> <?=$easy_values[2] ?> </td>
+				<td> <?=$normal_keys[2] ?> </td>
+				<td> <?=$normal_values[2] ?> </td>
+				<td> <?=$hard_keys[2] ?> </td>
+				<td> <?=$hard_values[2] ?> </td>
+			</tr>
+			<tr>
+				<td> <?=$endless_keys[3] ?> </td>
+				<td> <?=$endless_values[3] ?> </td>
+				<td> <?=$easy_keys[3] ?> </td>
+				<td> <?=$easy_values[3] ?> </td>
+				<td> <?=$normal_keys[3] ?> </td>
+				<td> <?=$normal_values[3] ?> </td>
+				<td> <?=$hard_keys[3] ?> </td>
+				<td> <?=$hard_values[3] ?> </td>
+			</tr>
+			<tr>
+				<td> <?=$endless_keys[4] ?> </td>
+				<td> <?=$endless_values[4] ?> </td>
+				<td> <?=$easy_keys[4] ?> </td>
+				<td> <?=$easy_values[4] ?> </td>
+				<td> <?=$normal_keys[4] ?> </td>
+				<td> <?=$normal_values[4] ?> </td>
+				<td> <?=$hard_keys[4] ?> </td>
+				<td> <?=$hard_values[4] ?> </td>
+			</tr>
+		</table>
+	</body>
 
-<?php
-
-//takes in name of score file e.g. 'score/endless_scores.txt'
-function printBoard($filename){
-
-    //gets content of file
-    $current = file_get_contents($filename);
-    //makes an array of each line, e.g. username,score
-    $scores = explode("\n", $current);
-    $scorelist_length = count($scores);
-    //initialize associative array
-    $scorelist = array('test' => 0);
-
-    foreach($scores as $score) {
-        //array with individual username and high score as elements
-        $uScore = explode(",", $score);
-        //create assosciative array username => score
-        $scorelist[$uScore[0]] = $uScore[1];
-    }
-
-    //use arsort to sort score values numerically
-    arsort($scorelist);
-    //print top 5, username: score, or less if the file is not that long
-    $count = 0;
-    foreach($scorelist as $key => $value){
-        if($count < $scorelist_length || $count < 5){
-            $uScore = explode(",", $scorelist[$count]);
-            print $count+1 . ". " . $key . ": " . $value . "<br>"; //e.g. 1. bringo: 45
-
-        }else{
-            break;
-        }
-        $count++;
-    }
-    /*for($x = 0; $x < $scorelist_length || $x < 5; $x++){
-        $uScore = explode(",", $scorelist[$x]);
-        print $x+1 . "." . $uScore[0] . ": " . $uScore[1] . "\n\n"; //e.g. 1. bringobongo: 45
-    
-    }*/
-}
-?>
+</html>

@@ -6,6 +6,7 @@
 	);
 
 	function hangman($mistakes) {
+
     	$gameimage = array("hagrid/hagrid0.png", "hagrid/hagrid1.png", "hagrid/hagrid2.png",
     	"hagrid/hagrid3.png", "hagrid/hagrid4.png", "hagrid/hagrid5.png", "hagrid/gameover.png");
 		?>
@@ -13,9 +14,11 @@
 			<img src=<?php print($gameimage[$mistakes]) ?>>
 		</div>
 		<?php       
+
 	}
 
 	function guess_letter($username, $guess): bool {
+
 		$data = read_user_data($username);
 		$word = $data['word'];
 		$pos = strpos($word, $guess);
@@ -24,38 +27,100 @@
 		} else {
 			return false;
 		}
+
 	}
 
 	function generate_word_and_hints(): array {
+		
 		$file_contents = file_get_contents('words.txt');
 		$word_list = explode(PHP_EOL, $file_contents);
 		$length = count($word_list);
 		$chosen_string = $word_list[rand(0, $length - 1)];
 		$word_and_hints = explode(',', $chosen_string);
 		return $word_and_hints;
+
+	}
+
+	// BELOW: LEADERBOAD FUNCTIONS
+
+	function read_leaderboard($gamemode): array {
+
+		$leaderboard_files = array (
+			'endless' => 'scores/endless.txt',
+			'easy' => 'scores/easy.txt',
+			'normal' => 'scores/normal.txt',
+			'hard' => 'scores/hard.txt'
+		);
+
+		$file_contents = file_get_contents($leaderboard_files[$gamemode]);
+		$scores = explode(PHP_EOL, $file_contents);
+
+		foreach ($scores as $score) {
+        	$score = explode(":", $score);
+        	$score_list[$score[0]] = $score[1];
+		}
+
+		arsort($score_list);  // sores values numerically
+
+		return $score_list;
+		
+	}
+
+	function submit_score($gamemode, $username, $score) {
+
+		$leaderboard = read_leaderboard($gamemode);
+
+		$last_key = array_key_last($leaderboard);
+		if ($leaderboard[$last_key][1] < $score) {
+			$leaderboard[$username] = $score;
+			arsort($score_list);
+			$last_key = array_key_last($leaderboard);
+			unset($leaderboard[$last_key]);
+		}
+
+	}
+
+	// BELOW: SESSION HANDLING FUNCTIONS
+
+	function session_handler() {
+
+		session_start();
+		$username = $_SESSION['username'];
+		$data = read_user_data($username);
+
 	}
 
 	// BELOW: PASSWORD FILE FUNCTIONS
 
 	function check_password($username, $password): bool {
+
 		$file_contents = file_get_contents('passwords.txt');
 		$raw_text = explode(PHP_EOL, $file_contents);
+
 		foreach ($raw_text as $line) {
+
 			$split = explode(':', $line);
 			if ($split[0] == $username) {
+
 				if ($split[1] == $password) {
 					return true;
 				} else {
 					return false;
 				}
+
 			}
+
 		}
+
 		return false;
+
 	}
 
 	function write_new_account_info($username, $password) {
+
 		$save_to_file = PHP_EOL . $username . ':' . $password;
 		file_put_contents('passwords.txt', $save_to_file, FILE_APPEND);
+
 	}
 
 	// BELOW: USER DATA FILE FUNCTIONS
@@ -65,20 +130,27 @@
 	}
 
 	function write_user_data($username, $data) {
+
 		foreach ($data as $key => $value) {
 			$output_string = $output_string . PHP_EOL . $key . ':' . $value;
 		}
+
 		file_put_contents(get_user_file_location($username), $output_string);
+
 	}
 
 	function read_user_data($username): array {
+
 		$file_contents = file_get_contents(get_user_file_location($username));
 		$array = explode(PHP_EOL, $file_contents);
+
 		foreach ($array as $item) {
 			$split = explode(':', $item);
 			$output[$split[0]] = $split[1];
 		}
+
 		return $output;
+
 	}
 
 	// BELOW: INTEGER - BOOLEAN ARRAY IMPLEMENTATION
@@ -97,14 +169,19 @@
 			}
 			$factor = $factor - 1;
 		}
+
 		return $output;
+
 	}
 
 	function bool_array_to_int($array): int {
+
 		foreach ($array as $pos => $bool) {
 			if ($bool) $output = $output + pow(2, $pos);
 		}
+
 		return $output;
+
 	}
 
 ?>
