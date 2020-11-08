@@ -1,17 +1,16 @@
 <?php
 include 'common.php';
-hangmanHeader();
 ?>
 <!DOCTYPE html>
 <html>
 
 <head>
     <title> front page </title>
-    <link href="../styles.css" type="text/css" rel="stylesheet" />
+    <link href="./hangman.css" type="text/css" rel="stylesheet" />
 </head>
 
-<body>
-    <img src="../IMG/logo.svg" style="display: block;
+<body class="index">
+    <img src="./IMG/logo.svg" style="display: block;
     margin-left: auto;
     margin-right: auto;
     width: 50%;align-content:center;">
@@ -27,10 +26,3 @@ hangmanHeader();
 </body>
 
 </html>
-
-
-
-
-<?php
-hangmanFooter();
-?>

@@ -7,7 +7,7 @@ hangmanHeader();
 
 <head>
     <title> front page </title>
-    <link href="../styles.css" type="text/css" rel="stylesheet" />
+    <link href="../old_stuff/styles.css" type="text/css" rel="stylesheet" />
 </head>
 
 <body>

@@ -13,7 +13,7 @@
 		<title>Gamemode</title>
 		<link rel="stylesheet" href="hangman.css" />
 	</head>
-
+	<body class="difficulty">
 	<form action="difficulty-submit.php" method="POST">
 
 		Welcome <?php print $username . "!";?>
@@ -32,5 +32,5 @@
 		</select>
 		<br>
 		<input type="submit" value="Start Game">
-
+</body>
 </html>
