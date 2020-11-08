@@ -45,8 +45,6 @@
 	$mistake_count = intval($data['mistakeCount']);
 	hangman($mistake_count);
 
-	print_r($shown_letters);
-
 	echo '<br />';
 
 	if ($hint_count != 0) {
@@ -64,12 +62,27 @@
 ?>
 
 <html>
+
 	<head>
 		<title> Team AEIOU: Hangman </title>
 		<link rel="stylesheet" href="hangman.css">
 	</head>
 
 	<body>
+
+		<table>
+			<tr>
+
+				<?php
+				
+					for ($a = 0; $a < $word_length; $a++) {
+						echo '<th>' . $shown_letters[$a] . '</th>';
+					}
+
+				?>
+
+			</tr>
+		</table>
 
 		<form action="gameplay-next.php" method="POST">
 			Guess a letter: <input name="guess" type="text" maxlength="1" size="3" />
