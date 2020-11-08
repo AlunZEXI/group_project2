@@ -116,7 +116,7 @@ div .gamebox {
   align-items: center;
 }
 
-table .leaderboard {
+.leaderboard {
   width: 50%;
   height: 50%;
   display: grid;
@@ -179,8 +179,13 @@ a:hover {
 }
 
 table #letter-display{
-  display: inline-table;
   margin: auto;
+
+}
+
+div .center-table{
+  margin-left: auto;
+  margin-right: auto; 
   font-size:24px;
 }
 

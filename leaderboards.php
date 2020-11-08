@@ -28,8 +28,9 @@
 		<link rel="stylesheet" href="./hangman.css" />
 	</head>
 
-	<body>
-		<table class="leaderboard">
+	<body class="login-body">
+		<div class="leaderboard">
+		<table>
     		<tr>
         		<th colspan=2>Endless</th>
         		<th colspan=2>Easy</th>
@@ -87,6 +88,12 @@
 				<td> <?=$hard_values[4] ?> </td>
 			</tr>
 		</table>
+		</div>
+		<div class="guessbox">
+			<a href="difficulty.php">Start a new game?</a> <br>
+			<a href="leaderboards.php">Look at Leaderboards?</a> <br>
+			<a href="logout.php">Logout</a> <br>
+		</div>
 	</body>
 
 </html>

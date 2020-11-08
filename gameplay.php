@@ -78,9 +78,8 @@
 			}
 
 		?>
-
 		<table>
-			<tr >
+			<tr>
 
 				<?php
 				
@@ -97,7 +96,7 @@
 				?>
 
 			</tr>
-		</table>
+		</div>
 		
 		<form action="gameplay-next.php" method="POST">
 			Guess a letter: <input name="guess" type="text" maxlength="1" size="3" />
