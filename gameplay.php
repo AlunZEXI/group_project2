@@ -60,23 +60,25 @@
 	<body>
 		<?php
 			hangman($mistake_count);
-		?>
-	<div class="guessbox">
-		<?php
-		
+
 			echo '<br />';
 		
 			if ($hint_count != 0) {
-				echo $data['hint1'] . '<br />';
+				echo $data['hint1'] . ', ';
 			}
 		
 			if ($hint_count >= 2) {
-				echo $data['hint2'] . '<br />';
+				echo $data['hint2'] . ', ';
 			}
 		
 			if ($hint_count == 3) {
 				echo $data['hint3'] . '<br />';
 			}
+		?>
+	<div class="guessbox">
+		<?php
+		
+
 
 		?>
 
