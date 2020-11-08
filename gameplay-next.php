@@ -31,14 +31,18 @@
 
 		if (guess_letter($username, $guess)) {
 			
-			// TODO probably needs to do nothing tho
+			// this is when their guess is right
+			// probably needs to do nothing here tho
 
 		} else {
 			$mistake_count = intval($data['mistakeCount']);
 
 			if ($mistake_count == 5) {
-				header('Location: loser.php');
-				exit();
+				$gamemode = $data['gamemode'];
+				if ($gamemode != 'endless') {  // if on endless mode do not end the game
+					header('Location: loser.php');
+					exit();
+				}
 			}
 
 			$data['mistakeCount'] = strval($mistake_count + 1);
