@@ -4,18 +4,9 @@
 	session_handler();
 
 	session_unset(); 
-	session_destroy(); 
+	session_destroy();
+
+	header('Location: index.php');
+	exit();
 	
 ?>
-
-<html>
-    <head>
-        <title> Thanks for playing! </title>
-
-    </head>
-    <body>
-        Thanks for playing! 
-        <br>
-        <a href="index.php">Return to login page?</a>
-    </body>
-</html>

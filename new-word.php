@@ -3,6 +3,7 @@
 	include 'common.php';
 	session_handler();
 
+	$data['state'] = 'running';
 	$data['mistakeCount'] = 0;  // changes based on difficulty
 	$data['hintCount'] = 0;
 	$data['lettersGuessed'] = 0;

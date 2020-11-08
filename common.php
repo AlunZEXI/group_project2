@@ -135,7 +135,7 @@
 		$output_string = "";
 		
 		foreach ($data as $key => $value) {
-			$output_string = $output_string . PHP_EOL . $key . ':' . $value;
+			if ($key != '') $output_string = $output_string . PHP_EOL . $key . ':' . $value;
 		}
 
 		file_put_contents(get_user_file_location($username), $output_string);

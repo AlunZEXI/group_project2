@@ -33,6 +33,8 @@
 	}
 
 	if (array_search('_', $shown_letters) === false) {
+		$data['state'] = 'winner';
+		write_user_data($username, $data);
 		header('Location: winner.php');
 		exit();
 	}

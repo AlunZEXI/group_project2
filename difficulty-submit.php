@@ -10,6 +10,7 @@
 		exit();
 	}
 
+	$new_data['state'] = 'running';
 	$new_data['mistakeCount'] = 0;
 	$new_data['score'] = 0;
 	$new_data['hintCount'] = 0;

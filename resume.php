@@ -5,8 +5,12 @@
 
 	// check for errors in user's data
 
-	if ($data['state'] == 'newgame') {
+	$state = $data['state'];
+	if ($state == 'newgame') {
 		header('Location: difficulty.php');
+		exit();
+	} else if ($state == 'continue' || $state == 'winner') {
+		header('Location: winner.php');
 		exit();
 	} else {
 		header('Location: gameplay.php');
