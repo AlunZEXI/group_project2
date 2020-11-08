@@ -4,7 +4,6 @@
 
 	session_start();
 	$username = $_SESSION['username'];
-
 	$data = read_user_data($username);
 
 	// check for errors in user's data

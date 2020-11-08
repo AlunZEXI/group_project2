@@ -35,6 +35,28 @@
 		return $word_and_hints;
 	}
 
+	// BELOW: PASSWORD FILE FUNCTIONS
+
+	function check_password($username, $password): bool {
+		$file_contents = file_get_contents('passwords.txt');
+		$raw_text = explode(PHP_EOL, $file_contents);
+		foreach ($raw_text as $line) {
+			$split = explode(':', $item);
+			if ($split[0] == $username) {
+				if ($split[1] == $password) {
+					return true;
+				} else {
+					return false;
+				}
+			}
+		}
+	}
+
+	function write_new_account_info($username, $password) {
+		$save_to_file = "\n" . $username . ':' . $password;
+		file_put_contents('passwords.txt', $save_to_file, FILE_APPEND);
+	}
+
 	// BELOW: USER DATA FILE FUNCTIONS
 
 	function get_user_file_location($username) {
@@ -42,7 +64,6 @@
 	}
 
 	function write_user_data($username, $data) {
-		$output_string = 'password:' . read_user_data($username)['password'];
 		foreach ($data as $key => $value) {
 			$output_string = $output_string . ',' . $key . ':' . $value;
 		}
