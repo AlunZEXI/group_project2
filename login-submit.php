@@ -6,28 +6,27 @@
 	$password = $_POST['password'];
 
 	if (preg_match("/^$/", $username) || preg_match("/^$/", $password)) {
-		header("Location: signup.php?err=3");
+		header("Location: login.php?err=1");
 		exit();
 	}
 
 	if (!preg_match('/^[a-zA-Z0-9]+$/', $username)) {
-		header('Location: signup.php?err=2');
+		header('Location: login.php?err=2');
 		exit();
 	}
 
-	if (file_exists(get_user_file_location($username))) {
-		header('Location: signup.php?err=1');
+	$data = read_user_data($username);
+	if ($data['password'] == $password) {
+		echo 'You logged in!';
+	} else {
+		header('Location: login.php?err=2');
 		exit();
 	}
-
-	$data['password'] = $password;
-	$data['state'] = 'newgame';
-	write_user_data($username, $data);
 
 	session_start();
 	$_SESSION['username'] = $username;
 
-	header('Location: difficulty.php');
+	header('Location: gameplay.php');
 	exit();
 
 ?>
