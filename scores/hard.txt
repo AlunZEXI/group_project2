@@ -1,6 +1,0 @@
-
-Austin:60
-bringo:56
-Steve:50
-beepo:42
-habby:34
