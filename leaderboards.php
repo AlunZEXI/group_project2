@@ -90,9 +90,7 @@
 		</table>
 		</div>
 		<div class="guessbox">
-			<a href="difficulty.php">Start a new game?</a> <br>
-			<a href="leaderboards.php">Look at Leaderboards?</a> <br>
-			<a href="logout.php">Logout</a> <br>
+			<a href="logout.php">Back to Main Page</a> <br>
 		</div>
 	</body>
 
