@@ -7,6 +7,12 @@
 	$username = $_SESSION['username'];
 
 	$new_data['gamemode'] = $_POST['gamemode'];
+
+	if (preg_match("/^$/", $new_data['gamemode'])) {
+		header("Location: difficulty.php?err=1");
+		exit();
+	}
+
 	$new_data['mistakeCount'] = 0;
 	$new_data['score'] = 0;
 	$new_data['hintCount'] = 0;
