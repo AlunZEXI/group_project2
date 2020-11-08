@@ -66,17 +66,38 @@
 		
 	}
 
+	function write_leaderboard($gamemode, $array) {
+
+		$leaderboard_files = array (
+			'endless' => 'scores/endless.txt',
+			'easy' => 'scores/easy.txt',
+			'normal' => 'scores/normal.txt',
+			'hard' => 'scores/hard.txt'
+		);
+
+		$output_string = "";
+		
+		foreach ($array as $key => $value) {
+			$output_string = $output_string . PHP_EOL . $key . ':' . $value;
+		}
+
+		file_put_contents($leaderboard_files[$gamemode], $output_string);
+
+	}
+
 	function submit_score($gamemode, $username, $score) {
 
 		$leaderboard = read_leaderboard($gamemode);
 
 		$last_key = array_key_last($leaderboard);
-		if ($leaderboard[$last_key][1] < $score) {
+		if ($leaderboard[$last_key] < $score) {
 			$leaderboard[$username] = $score;
-			arsort($score_list);
+			arsort($leaderboard);
 			$last_key = array_key_last($leaderboard);
 			unset($leaderboard[$last_key]);
+			write_leaderboard($gamemode, $leaderboard);
 		}
+		
 
 	}
 
