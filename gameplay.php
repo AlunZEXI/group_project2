@@ -46,24 +46,10 @@
 	$hint_count = $data['hintCount'];
 
 	$mistake_count = intval($data['mistakeCount']);
-	hangman($mistake_count);
-
-	echo '<br />';
-
-	if ($hint_count != 0) {
-		echo $data['hint1'] . '<br />';
-	}
-
-	if ($hint_count >= 2) {
-		echo $data['hint2'] . '<br />';
-	}
-
-	if ($hint_count == 3) {
-		echo $data['hint3'] . '<br />';
-	}
+	
 
 ?>
-
+<!DOCTYPE html>
 <html>
 
 	<head>
@@ -72,8 +58,29 @@
 	</head>
 
 	<body>
+		<?php
+			hangman($mistake_count);
+		?>
+	<div class="guessbox">
+		<?php
+		
+			echo '<br />';
+		
+			if ($hint_count != 0) {
+				echo $data['hint1'] . '<br />';
+			}
+		
+			if ($hint_count >= 2) {
+				echo $data['hint2'] . '<br />';
+			}
+		
+			if ($hint_count == 3) {
+				echo $data['hint3'] . '<br />';
+			}
 
-		<table>
+		?>
+
+		<table class="letter-display">
 			<tr>
 
 				<?php
@@ -92,13 +99,14 @@
 
 			</tr>
 		</table>
-
+		
 		<form action="gameplay-next.php" method="POST">
 			Guess a letter: <input name="guess" type="text" maxlength="1" size="3" />
-			<input type="submit" name="next_button" value="Guess" />
+			<input type="submit" name="next_button" value="Guess" class="login-form-field" />
 			<br>
 			Click for Hint: <input type="submit" name="next_button" value="Hint" />
 		</form>
+		</div>
 
 	</body>
 
