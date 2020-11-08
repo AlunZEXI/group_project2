@@ -8,7 +8,7 @@ include 'common.php';
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Group Project 2 Login</title>
-    <link rel="stylesheet" href="../login-page.css">
+    <link rel="stylesheet" href="../old_stuff/login-page.css">
 </head>
 <body>
         <main id="main-holder">
