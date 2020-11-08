@@ -1,4 +1,0 @@
-bringo:24
-beepo:42
-habby:34
-jambo:22
