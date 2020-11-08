@@ -7,13 +7,14 @@
 
 	function hangman($mistakes) {
 
+		if ($mistakes > 6) $mistakes = 6;  // never show any image past hagrid5.png
+
     	$gameimage = array("hagrid/hagrid0.png", "hagrid/hagrid1.png", "hagrid/hagrid2.png",
     	"hagrid/hagrid3.png", "hagrid/hagrid4.png", "hagrid/hagrid5.png", "hagrid/gameover.png");
-		?>
-		<div class = "gamebox">
-			<img src=<?php print($gameimage[$mistakes]) ?>>
-		</div>
-		<?php       
+		
+		echo '<div class = "gamebox">';
+		echo '<img src=' . $gameimage[$mistakes] . '>';
+		echo '</div>';
 
 	}
 
