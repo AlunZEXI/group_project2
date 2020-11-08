@@ -12,6 +12,12 @@
 	if ($button_clicked == 'Guess') {  // guessing a letter
 
 		$guess = $_POST['guess'];
+
+		if (preg_match("/^$/", $guess)) {
+			header("Location: gameplay.php?err=3");
+			exit();
+		}
+
 		$guess = strtolower($guess);
 
 		$guessed_int = $data['lettersGuessed'];

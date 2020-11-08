@@ -1,15 +1,12 @@
 <?php
 
 	include 'common.php';
-
-	session_save_path("session");
-	session_start();
-	$username = $_SESSION['username'];
-	$data = read_user_data($username);
+	session_handler();
 
 	$errors = array (
 		1 => 'You have already used all three hints.',
-		2 => 'You have already guessed that letter.'
+		2 => 'You have already guessed that letter.',
+		3 => 'You cannot guess nothing.'
 	);
 
 	$error = $_GET['err'];
