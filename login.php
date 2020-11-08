@@ -28,7 +28,7 @@
 				<?php
 					if (!$error == '') {
 						$error_code = intval($error);
-						echo '<div id="login-error-msg-holder"> <p id="login-error-msg">' . $errors[$error_code] . '</p></div>';
+						echo '<div id="login-error-msg-holder">' . $errors[$error_code] . '</div>';
 					}
 				?>
 
