@@ -1,9 +1,12 @@
 <?php 
-session_save_path("session");
-session_start();
 
-session_unset(); 
-session_destroy(); ?>
+	include 'common.php';
+	session_handler();
+
+	session_unset(); 
+	session_destroy(); 
+	
+?>
 
 <html>
     <head>

@@ -1,10 +1,7 @@
 <?php
 
 	include 'common.php';
-	
-	session_save_path("session");
-	session_start();
-	$username = $_SESSION['username'];
+	session_handler();
 
 	$new_data['gamemode'] = $_POST['gamemode'];
 
