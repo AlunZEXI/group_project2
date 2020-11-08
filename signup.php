@@ -10,39 +10,45 @@
 
 	$error = $_GET['err'];
 
-	if (!$error == '') {
-		$error_code = intval($error);
-		echo '<a id="error">' . $errors[$error_code] . '</a>';
-	}
 
 ?>
 
-<html>
+<html lang="en">
 
 	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<title>Sign Up</title>
-		<link rel="stylesheet" href="hangman.css" />
+		<link rel="stylesheet" href="./hangman.css" />
 	</head>
 
 	<body>
+		<main id="main-holder">
 
-		<form action="signup-submit.php" method="post">
+			<h1 id="login-header">AEIOU'S Hangman Signup</h1>
 
-			<fieldset>
+				<?php
+					if (!$error == '') {
+						$error_code = intval($error);
+						echo '<div id="login-error-msg-holder">' . $errors[$error_code] . '</div>';
+					}
+				?>
+
+			<form action="signup-submit.php" method="post" id="login-form">
 
 				<label>Username:
-					<input type="text" name="username" size=16>
+					<input type="text" class="login-form-field" id="username-field" name="username" maxlength="16" size=16>
 				</label>
 
 				<label>Password:
-					<input type="password" name="password" size=16>
+					<input type="password" class="login-form-field" id="password-field" name="password" maxlength="16" size=16>
 				</label>
 
-				<input type="submit" value="Sign up">
+				<input type="submit" value="Sign up" id="login-form-submit">
 
-			</fieldset>
+			</form>
 
-		</form>
+		</main>
 
 	</body>
 

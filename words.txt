@@ -12,3 +12,11 @@ patronus,spell,silver,animal
 dobby,name,house elf,sock
 scabbers,rat,animagus,gryffindor
 nagini,snake,Voldemort's pet, horcrux
+madame_hooch,Professor at Hogwarts, flying instructor, quidditch referee
+viktor_krum,student at Durmstrang Institute, seeker, bulgarian national quidditch team
+golden_snitch,quidditch ball, walnut-sized, 150 points
+norberta,Hagrid's pet, norwegian ridgeback dragon, raised in romania
+percy_weasley: Weasley sibling, third child, prefect and head boy
+bloody_baron: ghost at Hogwarts, slytherin, murderer
+half_blood_prince: nickname of a professor, slytherin, old potions book
+defense_against_the_dark_arts,Hogwarts subject to study, the professor curse, forbidden spells
