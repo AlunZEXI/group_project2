@@ -63,6 +63,10 @@
 ?>
 
 <html>
+	<head>
+		<title> Team AEIOU: Hangman </title>
+		<link rel="stylesheet" href="hangman.css">
+	</head>
 
 	<body>
 
