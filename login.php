@@ -35,11 +35,11 @@
 			<form id=login-form" action="login-submit.php" method="post">
 
 				<label>Username:
-					<input type="text" class="login-form-field" name="username" maxlength="16" size=16>
+					<input type="text" class="login-form-field" id="username-field" name="username" maxlength="16" size=16>
 				</label>
 
 				<label>Password:
-					<input type="password" class="login-form-field" name="password" maxlength="16" size=16>
+					<input type="password" class="login-form-field" id="password-field" name="password" maxlength="16" size=16>
 				</label>
 
 				<input type="submit" value="Sign up" id="login-form-submit">
