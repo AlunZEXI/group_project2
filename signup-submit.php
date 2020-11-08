@@ -24,7 +24,7 @@
 
 	$data['state'] = 'newgame';
 	write_user_data($username, $data);
-
+	session_save_path("session");
 	session_start();
 	$_SESSION['username'] = $username;
 

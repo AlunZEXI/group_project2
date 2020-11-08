@@ -16,7 +16,7 @@
 	}
 
 	if (check_password($username, $password)) {
-
+		session_save_path("session");
 		session_start();
 		$_SESSION['username'] = $username;
 

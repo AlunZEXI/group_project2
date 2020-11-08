@@ -83,7 +83,7 @@
 	// BELOW: SESSION HANDLING FUNCTIONS
 
 	function session_handler() {
-
+		session_save_path("session");
 		session_start();
 		$username = $_SESSION['username'];
 		$data = read_user_data($username);
