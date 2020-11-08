@@ -1,59 +1,30 @@
 <?php
-//header for page
-function hangmanHeader() {
-?>
-<!DOCTYPE html>
-<html lang = "en">
-<head>
-    <title>Harry Potter Hangman</title>
-    <link rel="stylesheet" href="hp_hangman.css">
-</head>
-<body>
-<?php
-}
-//footer for page
-function hangmanFooter() {
-?>
-</body>
-</html>
-<?php
-}
 
-function userExists($username): bool{
-    $file = 'users.txt';
-    $current = file_get_contents($file);
-    $users = explode("\n", $current);
-    foreach($users as $user) {
-        if(strcmp($username, $user) == 0){
-            return true;
-        }
-    }
-    return false;
-}
-//print out hangman image based on how many mistakes the user makes
-function hangman($mistakes) {
-    $gameimage = array("hagrid/hagrid0.png", "hagrid/hagrid1.png", "hagrid/hagrid2.png",
-    "hagrid/hagrid3.png", "hagrid/hagrid4.png", "hagrid/hagrid5.png", "hagrid/gameover.png");
-?>
-<div class = "gamebox">
-<img src=<?php print($gameimage[$mistakes]) ?>>
+	$alphabet = array (
+		'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm',
+		'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'
+	);
 
-</div>
-<?php       
-}
-function guess($word, $guess){
-    $pos = strpos($word, $guess);
-    return $pos === true;
-}
+	function hangman($mistakes) {
+    	$gameimage = array("hagrid/hagrid0.png", "hagrid/hagrid1.png", "hagrid/hagrid2.png",
+    	"hagrid/hagrid3.png", "hagrid/hagrid4.png", "hagrid/hagrid5.png", "hagrid/gameover.png");
+		?>
+		<div class = "gamebox">
+			<img src=<?php print($gameimage[$mistakes]) ?>>
+		</div>
+		<?php       
+	}
 
-function printHint($hints){
-        print($hints[1]);
-}
-
-function guess_letter($username, $guess) {
-	$data = read_user_data($username);
-
-}
+	function guess_letter($username, $guess): bool {
+		$data = read_user_data($username);
+		$word = $data['word'];
+		$pos = strpos($word, $guess);
+		if ($pos !== false) {
+			return true;
+		} else {
+			return false;
+		}
+	}
 
 	function generate_word_and_hints(): array {
 		$file_contents = file_get_contents('words.txt');
@@ -75,7 +46,7 @@ function guess_letter($username, $guess) {
 		foreach ($data as $key => $value) {
 			$output_string = $output_string . ',' . $key . ':' . $value;
 		}
-		file_put_contents($file_location, $output_string);
+		file_put_contents(get_user_file_location($username), $output_string);
 	}
 
 	function read_user_data($username): array {
@@ -91,7 +62,10 @@ function guess_letter($username, $guess) {
 	// BELOW: INTEGER - BOOLEAN ARRAY IMPLEMENTATION
 
 	function int_to_bool_array($number): array {
+
+		$output = array();
 		$factor = intval(log($number, 2) + 1);
+
 		while ($factor >= 1) {
 			if ($number - pow(2, $factor - 1) >= 0) {
 				$number = $number - pow(2, $factor - 1);

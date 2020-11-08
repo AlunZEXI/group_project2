@@ -33,8 +33,4 @@
 		<br>
 		<input type="submit" value="Start Game">
 
-		<?php
-			hangmanFooter();
-		?>
-
 </html>

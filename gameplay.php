@@ -2,8 +2,13 @@
 
 	include 'common.php';
 
+	session_start();
+	$username = $_SESSION['username'];
+	$data = read_user_data($username);
+
 	$errors = array (
-		1 => 'You have already used all three hints.'
+		1 => 'You have already used all three hints.',
+		2 => 'You have already guessed that letter.'
 	);
 
 	$error = $_GET['err'];
@@ -13,11 +18,46 @@
 		echo '<a id="error">' . $errors[$error_code] . '</a>';
 	}
 
-	session_start();
-	$username = $_SESSION['username'];
+	$mistake_count = intval($data['mistakeCount']);
+	hangman($mistake_count);
 
-	$mistakes = get_mistake_count($username);
-	hangman($mistakes);
+	$guessed_int = $data['lettersGuessed'];
+	$guessed_array = int_to_bool_array($guessed_int);
+
+	$word = $data['word'];
+	$word_split = str_split($word);
+
+	$word_length = count($word_split);
+	$shown_letters = array_fill(0, $word_length, '_');
+
+	for ($a = 0; $a < $word_length; $a++) {
+		$char_pos = array_search($word_split[$a], $alphabet);
+		if ($guessed_array[$char_pos]) {
+			$shown_letters[$a] = $word_split[$a];
+		}
+	}
+
+	print_r($shown_letters);
+
+	if (array_search('_', $shown_letters) === false) {
+		echo 'You have completed the word!';
+	}
+
+	$hint_count = $data['hintCount'];
+
+	echo '<br />';
+
+	if ($hint_count != 0) {
+		echo $data['hint1'] . '<br />';
+	}
+
+	if ($hint_count >= 2) {
+		echo $data['hint2'] . '<br />';
+	}
+
+	if ($hint_count == 3) {
+		echo $data['hint3'] . '<br />';
+	}
 
 ?>
 

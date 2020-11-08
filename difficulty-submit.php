@@ -5,7 +5,8 @@
 	session_start();
 	$username = $_SESSION['username'];
 
-	$file_contents = file_get_contents($file_location);
+	$data = read_user_data($username);
+
 	// check for errors in user's data
 
 	$data['gamemode'] = $_POST['gamemode'];
