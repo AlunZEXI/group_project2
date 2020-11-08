@@ -19,11 +19,17 @@
 	$hard_values = array_values($hard_leaderboard);
 
 ?>
-
+<!DOCTYPE html>
 <html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Login</title>
+		<link rel="stylesheet" href="./hangman.css" />
+	</head>
 
 	<body>
-		<table>
+		<table class="leaderboard">
     		<tr>
         		<th colspan=2>Endless</th>
         		<th colspan=2>Easy</th>
