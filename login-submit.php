@@ -15,18 +15,19 @@
 		exit();
 	}
 
-	$data = read_user_data($username);
-	if ($data['password'] == $password) {
-		echo 'You logged in!';
+	if (check_password($username, $password)) {
+
+		session_start();
+		$_SESSION['username'] = $username;
+
+		header('Location: resume.php');
+		exit();
+
 	} else {
+
 		header('Location: login.php?err=2');
 		exit();
+
 	}
-
-	session_start();
-	$_SESSION['username'] = $username;
-
-	header('Location: gameplay.php');
-	exit();
 
 ?>

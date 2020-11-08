@@ -20,7 +20,8 @@
 		exit();
 	}
 
-	$data['password'] = $password;
+	write_new_account_info($username, $password);
+
 	$data['state'] = 'newgame';
 	write_user_data($username, $data);
 

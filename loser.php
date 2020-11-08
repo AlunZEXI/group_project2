@@ -1,10 +1,12 @@
 <?php
 
 	include 'common.php';
-	
+
 	session_start();
 	$username = $_SESSION['username'];
-	$data = read_user_data($username);
+
+	$new_data['state'] = 'newgame';
+	write_user_data($username, $new_data);
 
 ?>
 
