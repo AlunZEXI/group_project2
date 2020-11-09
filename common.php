@@ -113,8 +113,9 @@
 	// BELOW: SESSION HANDLING FUNCTIONS
 
 	function session_handler() {
-		global $username, $data;
-		session_save_path("session");
+		
+		global $username, $data;  // must be global to exist after function terminates
+		session_save_path("session");  // important fix to work with codd server
 		session_start();
 		$username = $_SESSION['username'];
 		$data = read_user_data($username);

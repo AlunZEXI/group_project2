@@ -8,13 +8,12 @@
 	if ($button_clicked == 'Guess') {  // making a guess
 
 		$guess = $_POST['guess'];
+		$guess = strtolower($guess);  // capitalization does not matter
 
 		if (preg_match("/^$/", $guess)) {  // guessed nothing (blank input)
 			header("Location: gameplay.php?err=3");
 			exit();
 		}
-
-		$guess = strtolower($guess);
 
 		$guessed_int = $data['lettersGuessed'];
 		$guessed_array = int_to_bool_array($guessed_int);
