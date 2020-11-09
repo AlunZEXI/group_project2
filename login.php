@@ -41,7 +41,7 @@
 					<input type="password" class="login-form-field" id="password-field" name="password" maxlength="16" size=16>
 				</label>
 
-				<input type="submit" value="Sign up" id="login-form-submit">
+				<input type="submit" value="Login" id="login-form-submit">
 
 			</form>
 
