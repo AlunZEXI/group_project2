@@ -18,6 +18,7 @@ include 'common.php';
     <h1> Hangman game</h1>
     <div class="front_options"><a href="signup.php">New Player<br></a></div>
     <div class="front_options"><a href="login.php">Returning<br></a></div>
+    <div class="front_options"><a href="leaderboards.php">Leaderboards<br></a></div>
 
     <br>
     <p>Results and page (C) Copyright AEIOU Inc.</p>

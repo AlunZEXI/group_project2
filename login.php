@@ -44,6 +44,8 @@
 				<input type="submit" value="Login" id="login-form-submit">
 
 			</form>
+			<br>
+			<a href="index.php">Back to Main Page</a>
 
 		</main>
 
