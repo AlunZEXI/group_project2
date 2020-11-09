@@ -42,5 +42,13 @@
 		</select>
 		<br>
 		<input type="submit" value="Start Game">
+	</form>
+		<br>
+	<div class="leaderboard">
+		Endless: losing just resets everything but you keep your streak <br>
+		Easy: winning a round resets the hangman <br>
+		Normal: winning a round removes one mistake (body part) <br>
+		Hard: nothing is reset when you win a game <br>
+	</div>
 </body>
 </html>

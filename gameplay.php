@@ -96,12 +96,14 @@
 				?>
 
 			</tr>
-		</div>
+		</table>
 		
 		<form action="gameplay-next.php" method="POST">
 			Guess a letter: <input name="guess" type="text" maxlength="1" size="3" />
 			<input type="submit" name="next_button" value="Guess" class="guess-and-hint" />
 			Click for Hint: <input type="submit" name="next_button" value="Hint" class="guess-and-hint" />
+			<br>
+			<a href="logout.php">Logout</a>
 		</form>
 		<?php
 			if (!$error == '') {
